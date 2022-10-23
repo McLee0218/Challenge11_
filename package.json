@@ -1,5 +1,26 @@
 {
+  "name": "challenge11_",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "uuid": "^9.0.0"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/McLee0218/Challenge11_.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/McLee0218/Challenge11_/issues"
+  },
+  "homepage": "https://github.com/McLee0218/Challenge11_#readme"
 }
