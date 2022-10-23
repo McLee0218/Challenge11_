@@ -1,5 +1,6 @@
-const router = require('express').Router();
-const { Product, Category, Tag, ProductTag } = require('../../models');
+const express = require('express').Router();
+const htmlRoute = require('./htmlRoute');
+const path = require('path');
 
 
 router.get('/', (req, res) => {
@@ -24,7 +25,7 @@ router.post('/', (req, res) => {
     }
   */
   Product.create(req.body)
-    .then((product) => {
+    .then((htmlRoute) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
@@ -91,4 +92,4 @@ router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
 });
 
-module.exports = router;
+module.exports = express;
