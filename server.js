@@ -1,7 +1,6 @@
-const express = require('express');
-const apiRoutes = require('./routes/apiRoute');
+const express = require('express').Router();
+const routes = require('./routes');
 const app = express();
-const htmlRoutes = require('./routes/htmlRoute');
 const PORT = process.env.PORT || 4444;
 
 // const path = require('path');
@@ -12,8 +11,8 @@ app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use("/", htmlRoutes);
-app.use("/", apiRoutes);
+app.use(routes);
+// app.use("/api", apiRoutes);
 
 
 app.get('*', (req, res) => {
@@ -23,4 +22,5 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`server available at localhost:${PORT}`);
 })
+
 
