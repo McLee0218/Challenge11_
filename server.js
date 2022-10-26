@@ -1,18 +1,19 @@
-const express = require('express').Router();
-const routes = require('./routes');
+const express = require('express');
+// const routes = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 4444;
 
 // const path = require('path');
-
+const apiRoutes = require("./routes/apiRoute");
+const indexRoutes = require("./routes/index")
 
 app.use(express.static("public"));
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use(routes);
-// app.use("/api", apiRoutes);
+app.use('/api', apiRoutes);
+app.use('/', indexRoutes)
 
 
 app.get('*', (req, res) => {
