@@ -6,7 +6,8 @@ const fs = require("fs");
 
 
 router.get('/notes', (req, res) => {
-  return req.json();
+  let notes = JSON.parse(fs.readFileSync('./db/db.json')); 
+  res.send(notes);
 });
 
 router.post('/notes',(req,res) => {
@@ -20,6 +21,12 @@ router.post('/notes',(req,res) => {
 res.json(notes);
 });
 
+router.delete('/notes:id', (req,res) => {
+  let notes = JSON.parse(fs.readFileSync('./db/db.json'));
+  let removeNotes = notes.filter(item => item.id !== req.params.id);
+  fs.writeFileSync('./db/db.json', JSON.stringify(notes))
+  res.json(removeNotes);
+})
 //   // find all products
 //   // be sure to include its associated Category and Tag data
 // });
